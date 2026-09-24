@@ -1,0 +1,534 @@
+/* =========================
+   CONFIGURACIÓN GENERAL
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: white;
+    color: #222;
+}
+
+
+/* =========================
+   ENCABEZADO
+========================= */
+
+.header {
+    width: 100%;
+    height: 110px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 20px 40px;
+}
+
+
+/* =========================
+   LOGO
+========================= */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    width: 57px;
+    height: 57px;
+
+    background-color: #2584f5;
+
+    border-radius: 17px 17px 17px 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 4px;
+}
+
+.logo-icon span {
+    display: block;
+
+    width: 7px;
+
+    background-color: white;
+
+    border-radius: 2px;
+}
+
+.logo-icon span:nth-child(1) {
+    height: 14px;
+}
+
+.logo-icon span:nth-child(2) {
+    height: 23px;
+}
+
+.logo-icon span:nth-child(3) {
+    height: 32px;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+
+    line-height: 0.9;
+}
+
+.logo-text strong {
+    font-size: 25px;
+    color: #263746;
+}
+
+
+/* =========================
+   MENÚ
+========================= */
+
+.menu {
+    display: flex;
+
+    gap: 27px;
+
+    margin-right: 8px;
+}
+
+.menu a {
+    color: #222;
+
+    font-size: 16px;
+
+    text-decoration: underline;
+
+    transition: 0.2s;
+}
+
+.menu a:hover {
+    color: #2584f5;
+}
+
+
+/* =========================
+   SECCIÓN PRINCIPAL
+========================= */
+
+.hero {
+    width: 100%;
+
+    padding-top: 20px;
+}
+
+.hero-title {
+    text-align: center;
+
+    margin-bottom: 30px;
+}
+
+.hero-title h1 {
+    color: #2584f5;
+
+    font-size: 35px;
+
+    font-weight: 700;
+
+    margin-bottom: 5px;
+}
+
+.hero-title p {
+    font-size: 17px;
+}
+
+
+/* =========================
+   CONTENIDO PRINCIPAL
+========================= */
+
+.hero-content {
+
+    width: 720px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: 300px 1fr;
+
+    gap: 70px;
+
+    align-items: start;
+}
+
+
+/* =========================
+   DASHBOARD
+========================= */
+
+.hero-image {
+
+    width: 300px;
+    height: 240px;
+
+    background-color: #f0f3fa;
+
+    padding: 18px;
+
+    margin-top: 0;
+}
+
+.dashboard {
+
+    width: 100%;
+    height: 100%;
+
+    background-color: white;
+
+    border: 2px solid #263746;
+
+    border-radius: 4px;
+
+    box-shadow: 4px 5px 0 #dfe5ef;
+}
+
+.dashboard-header {
+
+    height: 30px;
+
+    background-color: #2584f5;
+
+    color: white;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    padding: 8px;
+}
+
+.dashboard-content {
+
+    display: flex;
+
+    height: calc(100% - 30px);
+}
+
+.dashboard-menu {
+
+    width: 55px;
+
+    background-color: #eef2f8;
+
+    padding: 15px 10px;
+}
+
+.dashboard-menu span {
+
+    display: block;
+
+    height: 5px;
+
+    background-color: #aeb8c8;
+
+    margin-bottom: 10px;
+
+    border-radius: 5px;
+}
+
+.dashboard-main {
+
+    flex: 1;
+
+    position: relative;
+
+    padding: 15px;
+}
+
+
+/* Gráfica */
+
+.chart {
+
+    width: 110px;
+    height: 70px;
+
+    border-bottom: 3px solid #2584f5;
+    border-left: 3px solid #2584f5;
+
+    transform: skewY(-15deg);
+
+    margin-top: 25px;
+}
+
+
+/* Carita */
+
+.smile {
+
+    position: absolute;
+
+    right: 20px;
+    bottom: 30px;
+
+    font-size: 35px;
+}
+
+
+/* =========================
+   CARACTERÍSTICAS
+========================= */
+
+.features {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+.feature {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 32px;
+}
+
+.feature-icon {
+
+    width: 51px;
+    height: 51px;
+
+    min-width: 51px;
+
+    border-radius: 50%;
+
+    background-color: #eeeeee;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+}
+
+.feature-icon::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 34px;
+    height: 27px;
+
+    border: 2px solid #2584f5;
+
+    border-radius: 50%;
+}
+
+.feature-icon::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 7px;
+    height: 7px;
+
+    border-left: 2px solid #2584f5;
+
+    border-bottom: 2px solid #2584f5;
+
+    transform: rotate(-20deg);
+
+    bottom: 10px;
+
+    right: 12px;
+}
+
+.feature-icon span {
+
+    color: #2584f5;
+
+    font-size: 13px;
+
+    letter-spacing: 1px;
+
+    z-index: 2;
+}
+
+.feature-text {
+
+    line-height: 1.4;
+}
+
+.feature-text strong {
+
+    display: block;
+
+    font-size: 16px;
+}
+
+.feature-text p {
+
+    font-size: 16px;
+}
+
+
+/* =========================
+   BOTÓN
+========================= */
+
+.button-container {
+
+    text-align: center;
+
+    margin-top: 25px;
+}
+
+.btn-start {
+
+    display: inline-block;
+
+    background-color: #2584f5;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    font-size: 16px;
+
+    padding: 7px 31px;
+
+    border-radius: 14px;
+
+    transition: 0.2s;
+}
+
+.btn-start:hover {
+
+    background-color: #126dd4;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================
+   LOGIN
+========================= */
+
+.login {
+
+    text-align: center;
+
+    margin-top: 8px;
+
+    font-size: 14px;
+}
+
+.login a {
+
+    color: #2584f5;
+
+    font-weight: bold;
+
+    margin-left: 10px;
+
+    text-decoration: underline;
+}
+
+
+/* =========================
+   SECCIONES
+========================= */
+
+.section-info {
+
+    min-height: 400px;
+
+    padding: 100px 20px;
+
+    text-align: center;
+}
+
+.section-info h2 {
+
+    color: #2584f5;
+
+    margin-bottom: 10px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 800px) {
+
+    .header {
+
+        height: auto;
+
+        flex-direction: column;
+
+        gap: 20px;
+
+        padding: 20px;
+    }
+
+    .menu {
+
+        gap: 15px;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        margin: 0;
+    }
+
+    .hero-content {
+
+        width: 90%;
+
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+    }
+
+    .hero-image {
+
+        margin: 0 auto;
+    }
+
+    .features {
+
+        max-width: 400px;
+
+        margin: auto;
+    }
+
+    .hero-title h1 {
+
+        font-size: 28px;
+    }
+
+}
