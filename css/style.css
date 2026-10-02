@@ -653,6 +653,20 @@ body {
     font: inherit;
 }
 
+.form-panel .form-error {
+    margin-top: -6px;
+    color: #b42318;
+    font-size: 13px;
+}
+
+.form-panel .form-error:empty {
+    display: none;
+}
+
+.form-panel input[aria-invalid="true"] {
+    border-color: #b42318;
+}
+
 .form-panel textarea {
     min-height: 120px;
     resize: vertical;

@@ -19,19 +19,72 @@
     <main class="page-main">
         <section class="form-panel">
             <h1>Crear cuenta</h1>
-            <form id="formRegistro" action="#" method="post">
+            <form id="formRegistro" action="#" method="post" novalidate>
                 <label for="nombre">Nombre</label>
-                <input type="text" id="nombre" name="nombre" autocomplete="name" required>
+                <input type="text" id="nombre" name="nombre" autocomplete="name" required aria-describedby="errorNombre">
+                <small class="form-error" id="errorNombre" aria-live="polite"></small>
                 <label for="correo">Correo electrónico</label>
-                <input type="email" id="correo" name="correo" autocomplete="email" required>
+                <input type="email" id="correo" name="correo" autocomplete="email" required aria-describedby="errorCorreo">
+                <small class="form-error" id="errorCorreo" aria-live="polite"></small>
                 <label for="password">Contraseña</label>
-                <input type="password" id="password" name="password" autocomplete="new-password" minlength="8" required>
+                <input type="password" id="password" name="password" autocomplete="new-password" minlength="12" required aria-describedby="errorPassword">
+                <small class="form-error" id="errorPassword" aria-live="polite"></small>
                 <label for="confirmarPassword">Confirmar contraseña</label>
-                <input type="password" id="confirmarPassword" name="confirmarPassword" autocomplete="new-password" minlength="8" required>
+                <input type="password" id="confirmarPassword" name="confirmarPassword" autocomplete="new-password" required aria-describedby="errorConfirmarPassword">
+                <small class="form-error" id="errorConfirmarPassword" aria-live="polite"></small>
                 <button type="submit" class="btn-start">Registrarse</button>
             </form>
             <p class="form-note">¿Ya tienes cuenta? <a href="login.html">Iniciar sesión</a></p>
         </section>
     </main>
+    <script>
+        const formRegistro = document.getElementById('formRegistro');
+        const nombre = document.getElementById('nombre');
+        const correo = document.getElementById('correo');
+        const password = document.getElementById('password');
+        const confirmarPassword = document.getElementById('confirmarPassword');
+
+        function mostrarError(campo, mensaje) {
+            const error = document.getElementById(`error${campo.id.charAt(0).toUpperCase()}${campo.id.slice(1)}`);
+            error.textContent = mensaje;
+            campo.setAttribute('aria-invalid', mensaje ? 'true' : 'false');
+            return mensaje === '';
+        }
+
+        function validarFormulario() {
+            const validaciones = [
+                mostrarError(nombre, !nombre.value.trim()
+                    ? 'El nombre es obligatorio.'
+                    : /^[A-Za-zÀ-ÿ\s]+$/.test(nombre.value.trim())
+                        ? ''
+                        : 'El nombre solo puede contener letras y espacios.'),
+                mostrarError(correo, !correo.value.trim()
+                    ? 'El correo electrónico es obligatorio.'
+                    : correo.validity.typeMismatch
+                        ? 'Introduce un correo electrónico válido con @.'
+                        : ''),
+                mostrarError(password, !password.value
+                    ? 'La contraseña es obligatoria.'
+                    : password.value.length < 12
+                        ? 'La contraseña debe tener al menos 12 caracteres.'
+                        : ''),
+                mostrarError(confirmarPassword, !confirmarPassword.value
+                    ? 'Confirma tu contraseña.'
+                    : confirmarPassword.value !== password.value
+                        ? 'Las contraseñas no coinciden.'
+                        : '')
+            ];
+
+            return validaciones.every(Boolean);
+        }
+
+        formRegistro.addEventListener('input', validarFormulario);
+        formRegistro.addEventListener('submit', (evento) => {
+            if (!validarFormulario()) {
+                evento.preventDefault();
+                formRegistro.querySelector('[aria-invalid="true"]').focus();
+            }
+        });
+    </script>
 </body>
 </html>
